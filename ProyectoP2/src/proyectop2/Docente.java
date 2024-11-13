@@ -1,43 +1,32 @@
-
 package proyectop2;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author Beykel
- */
-public class Docente extends Usuario{
-    private String especialidad;
+public class Docente extends Usuario {
+    private List<Pregunta> bancoPreguntas;
 
-    public Docente(String nombre, String email, String contrasena, String especialidad) {
-        super(nombre, email, contrasena);
-        this.especialidad = especialidad;
+    public Docente(String nombre, String username, String password) {
+        super(nombre, username, password);
+        this.bancoPreguntas = new ArrayList<>();
     }
 
-    public String getEspecialidad() {
-        return especialidad;
+    public void crearPregunta(Pregunta pregunta) {
+        bancoPreguntas.add(pregunta);
     }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
-    
-    public Evaluacion crearEvaluacion(String titulo, ArrayList<String> preguntas) {
-        System.out.println("Creando evaluación: " + titulo);
-        return new Evaluacion(titulo, preguntas);
+    public List<Pregunta> getBancoPreguntas() {
+        return bancoPreguntas;
     }
 
-    public void agregarTema(Tema tema) {
-        System.out.println("Agregando tema: " + tema.titulo);
-    }
-
-    public void calificaEvaluacion(Evaluacion evaluacion) {
-        System.out.println("Calificando evaluación: " + evaluacion.titulo);
-    }
-    
     @Override
-    public void mostrarRol() {
-        System.out.println("Soy un docente especializado en " + especialidad);
+    public String toString() {
+        return "Docente{" +
+                "nombre='" + nombre + '\'' +
+                ", username='" + username + '\'' +
+                ", bancoPreguntas=" + bancoPreguntas +
+                '}';
     }
 }
+
+

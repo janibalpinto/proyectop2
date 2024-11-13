@@ -4,10 +4,8 @@
  */
 package proyectop2;
 
-public class Ppal {
-    public static void main(String[] args) {
-        MenuPrincipal menuPrincipal = new MenuPrincipal();
-        menuPrincipal.mostrarMenu();
+public class ExcepcionUsuarioNoEncontrado extends Exception {
+    public ExcepcionUsuarioNoEncontrado(String mensaje) {
+        super(mensaje);
     }
 }
-

@@ -1,19 +1,14 @@
-
 package proyectop2;
 
-/**
- *
- * @author Beykel
- */
 public abstract class Usuario {
     protected String nombre;
-    private String email;
-    private String contrasena;
+    protected String username;
+    protected String password;
 
-    public Usuario(String nombre, String email, String contrasena) {
+    public Usuario(String nombre, String username, String password) {
         this.nombre = nombre;
-        this.email = email;
-        this.contrasena = contrasena;
+        this.username = username;
+        this.password = password;
     }
 
     public String getNombre() {
@@ -24,30 +19,20 @@ public abstract class Usuario {
         this.nombre = nombre;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-    
-    public void login() {
-        System.out.println(nombre + " ha iniciado sesión.");
-    }
-
-    public void logout() {
-        System.out.println(nombre + " ha cerrado sesión.");
-    }
-    
-    public abstract void mostrarRol();
 }
+

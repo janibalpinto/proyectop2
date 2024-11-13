@@ -1,60 +1,27 @@
-
 package proyectop2;
 
-import java.util.ArrayList;
 
-/**
- *
- * @author Beykel
- */
-public class Estudiante extends Usuario{
-    private String grado;
-    private ArrayList<Evaluacion> calificaciones = new ArrayList<>();
+import java.util.HashMap;
+import java.util.Map;
 
-    public Estudiante(String nombre, String email, String contrasena, String grado) {
-        super(nombre, email, contrasena);
-        this.grado = grado;
+public class Estudiante {
+    private String cedula;
+    private Map<Examen, Calificacion> calificaciones;
+
+    public Estudiante(String cedula) {
+        this.cedula = cedula;
+        this.calificaciones = new HashMap<>();
     }
 
-    public String getGrado() {
-        return grado;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setGrado(String grado) {
-        this.grado = grado;
+    public void agregarCalificacion(Examen examen, Calificacion calificacion) {
+        calificaciones.put(examen, calificacion);
     }
 
-    public ArrayList<Evaluacion> getCalificaciones() {
-        return calificaciones;
+    public Calificacion obtenerCalificacion(Examen examen) {
+        return calificaciones.get(examen);
     }
-
-    public void setCalificaciones(ArrayList<Evaluacion> calificaciones) {
-        this.calificaciones = calificaciones;
-    }
-    
-    public void realizarEvaluacion(Evaluacion evaluacion) {
-        System.out.println("Realizando evaluacion: " + evaluacion.titulo);
-        ArrayList<String> respuestas = new ArrayList<>();
-        for (String pregunta : evaluacion.preguntas) {
-            System.out.println(pregunta);
-            respuestas.add("respuesta" + Math.random());
-        }
-        double calificacion = evaluacion.calificarEvaluacion(respuestas);
-        calificaciones.add(evaluacion);
-        System.out.println("Calificacion obtenida: " + calificacion);
-    }
-
-    public void verCalificaciones() {
-        System.out.println("Calificaciones de " + nombre + ":");
-        for (Evaluacion e : calificaciones) {
-            System.out.println("Evaluacion: " + e.titulo);
-        }
-          
-    }
-    
-    @Override
-    public void mostrarRol() {
-        System.out.println("Soy un estudiante de grado " + grado);
-    }
-    
 }
